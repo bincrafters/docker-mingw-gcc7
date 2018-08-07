@@ -23,7 +23,9 @@ RUN apt-get update -y && \
 
 RUN curl https://cmake.org/files/v3.11/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz | tar -xz
 
-RUN apt-get install -y g++-mingw-w64-x86-64
+RUN apt-get install -y g++-mingw-w64-x86-64 && \
+    printf "1\n" | update-alternatives --config x86_64-w64-mingw32-gcc && \
+    printf "1\n" | update-alternatives --config x86_64-w64-mingw32-g++
 
 ENV CC=/usr/bin/x86_64-w64-mingw32-gcc \
     CXX=/usr/bin/x86_64-w64-mingw32-g++ \

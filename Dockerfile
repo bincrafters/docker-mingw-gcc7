@@ -36,7 +36,9 @@ ENV CC=/usr/bin/x86_64-w64-mingw32-gcc \
     AS=/usr/bin/x86_64-w64-mingw32-gcc-as \
     AR=/usr/bin/x86_64-w64-mingw32-gcc-ar \
     WINDRES=/usr/bin/x86_64-w64-mingw32-windres \
-    RC=/usr/bin/x86_64-w64-mingw32-windres
+    RC=/usr/bin/x86_64-w64-mingw32-windres \
+    CONAN_CMAKE_FIND_ROOT_PATH=/usr/x86_64-w64-mingw32 \
+    CHOST=x86_64-w64-mingw32
 
 USER conan
 WORKDIR /home/conan

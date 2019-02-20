@@ -27,6 +27,8 @@ RUN apt-get install -y g++-mingw-w64-x86-64 && \
     printf "1\n" | update-alternatives --config x86_64-w64-mingw32-gcc && \
     printf "1\n" | update-alternatives --config x86_64-w64-mingw32-g++
 
+RUN apt-get install -y autoconf libtool
+
 ENV CC=/usr/bin/x86_64-w64-mingw32-gcc \
     CXX=/usr/bin/x86_64-w64-mingw32-g++ \
     CMAKE_C_COMPILER=/usr/bin/x86_64-w64-mingw32-gcc \

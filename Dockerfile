@@ -27,6 +27,8 @@ RUN apt-get install -y g++-mingw-w64-x86-64 && \
     printf "1\n" | update-alternatives --config x86_64-w64-mingw32-gcc && \
     printf "1\n" | update-alternatives --config x86_64-w64-mingw32-g++
 
+RUN apt-get install -y autoconf libtool
+
 ENV CC=/usr/bin/x86_64-w64-mingw32-gcc \
     CXX=/usr/bin/x86_64-w64-mingw32-g++ \
     CMAKE_C_COMPILER=/usr/bin/x86_64-w64-mingw32-gcc \
@@ -36,7 +38,9 @@ ENV CC=/usr/bin/x86_64-w64-mingw32-gcc \
     AS=/usr/bin/x86_64-w64-mingw32-gcc-as \
     AR=/usr/bin/x86_64-w64-mingw32-gcc-ar \
     WINDRES=/usr/bin/x86_64-w64-mingw32-windres \
-    RC=/usr/bin/x86_64-w64-mingw32-windres
+    RC=/usr/bin/x86_64-w64-mingw32-windres \
+    CONAN_CMAKE_FIND_ROOT_PATH=/usr/x86_64-w64-mingw32 \
+    CHOST=x86_64-w64-mingw32
 
 USER conan
 WORKDIR /home/conan
